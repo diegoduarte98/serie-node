@@ -13,6 +13,7 @@ UserShema.pre('save', async function(next) {
     this.password = hash;
     next();
 });
+
 const User = mongoose.model('User', UserShema);
 
 module.exports = User;
