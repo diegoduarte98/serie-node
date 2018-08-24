@@ -1,10 +1,12 @@
-const mongoose = require('../database');
+const mongoose = require('../../database');
 const bcrypt = require('bcryptjs');
 
 const UserShema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, unique: true, required: true, lowercase: true },
     password: { type: String, required: true, select: true },
+    passwordResetToken: { type: String, select: false },
+    passwordResetExpires: { type: Date, select: false },
     createdAt: { type: Date, default: Date.now },
 });
 
